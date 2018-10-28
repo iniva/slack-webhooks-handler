@@ -6,8 +6,9 @@
   "author": "Tony Di Benedetto <tonyblast@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "yarn clean && babel src --out-dir lib --source-maps --copy-files --ignore \"src/**/*.test.js\"",
+    "build": "yarn clean && babel src --out-dir lib --copy-files --ignore '**/*.test.js' && yarn clean:build",
     "clean": "rm -rf lib",
+    "clean:build": "rimraf lib/**/*.test.js",
     "commit": "git-cz",
     "hooks:message": "node hooks/index.js --action=message",
     "lint": "eslint lib hooks",
