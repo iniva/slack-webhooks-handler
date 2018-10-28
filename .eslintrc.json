@@ -1,0 +1,15 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "globals": {},
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2018
+  },
+  "extends": [
+    "eslint:recommended"
+  ]
+}

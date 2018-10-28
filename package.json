@@ -1,0 +1,40 @@
+{
+  "name": "slack-webhooks-handler",
+  "version": "1.0.0",
+  "description": "Manage incoming webhooks to send messages to Slack",
+  "main": "lib/index.js",
+  "author": "Tony Di Benedetto <tonyblast@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn clean && babel src --out-dir lib --source-maps --copy-files --ignore \"src/**/*.test.js\"",
+    "clean": "rm -rf lib",
+    "commit": "git-cz",
+    "hooks:message": "node hooks/index.js --action=message",
+    "lint": "eslint lib hooks",
+    "test": "NODE_ENV=test jest",
+    "test:coverage": "yarn test --coverage",
+    "test:coveralls": "yarn test --coverage --coverageReporters=text-lcov | coveralls"
+  },
+  "dependencies": {
+    "@slack/client": "^4.8.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "commitizen": "^3.0.4",
+    "coveralls": "^3.0.2",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^5.7.0",
+    "husky": "^1.1.2",
+    "jest": "^23.6.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
