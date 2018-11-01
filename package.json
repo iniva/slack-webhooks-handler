@@ -8,7 +8,7 @@
   "scripts": {
     "build": "yarn clean && babel src --out-dir lib --copy-files --ignore '**/*.test.js' && yarn clean:build",
     "clean": "rm -rf lib",
-    "clean:build": "rimraf lib/**/*.test.js",
+    "clean:build": "rm lib/*.test.js && rimraf lib/**/*.test.js",
     "commit": "git-cz",
     "hooks:message": "node hooks/index.js --action=message",
     "lint": "eslint lib hooks",
