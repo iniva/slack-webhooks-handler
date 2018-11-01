@@ -1,7 +1,5 @@
 import { getAuthorDetails } from './helpers';
 
-const EVENTS_AVAILABLE = ['release', 'issues'];
-
 const release = payload => {
     const { release: { html_url, tag_name, author, published_at }, repository } = payload;
     const authorDetails = getAuthorDetails(author);
@@ -60,6 +58,7 @@ const events = {
     release,
     issues
 };
+const EVENTS_AVAILABLE = Object.keys(events);
 
 const buildData = (event, payload) => {
     return events[event](payload);
