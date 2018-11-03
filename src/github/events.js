@@ -1,6 +1,6 @@
 import { getAuthorDetails } from './helpers';
 
-const release = payload => {
+export const release = payload => {
     const { release: { html_url, tag_name, author, published_at }, repository } = payload;
     const authorDetails = getAuthorDetails(author);
     const repoName = repository.name;
@@ -20,7 +20,7 @@ const release = payload => {
     };
 };
 
-const issues = payload => {
+export const issues = payload => {
     const { action, issue, repository } = payload;
     const { html_url, number, title, user, labels, state, updated_at } = issue;
     const authorDetails = getAuthorDetails(user);
@@ -52,19 +52,4 @@ const issues = payload => {
             }
         ]
     };
-};
-
-const events = {
-    release,
-    issues
-};
-const EVENTS_AVAILABLE = Object.keys(events);
-
-const buildData = (event, payload) => {
-    return events[event](payload);
-};
-
-export {
-    EVENTS_AVAILABLE,
-    buildData
 };
