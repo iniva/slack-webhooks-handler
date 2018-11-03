@@ -2,11 +2,10 @@
   "name": "slack-webhooks-handler",
   "version": "1.0.0",
   "description": "Manage incoming webhooks to send messages to Slack",
-  "main": "lib/index.js",
   "author": "Tony Di Benedetto <tonyblast@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "yarn clean && babel src --out-dir lib --copy-files --ignore '**/*.test.js' && yarn clean:build",
+    "build": "yarn clean && babel src --out-dir lib --copy-files --ignore '**/*.test.js' && yarn clean:build && cp package.json ./lib",
     "clean": "rm -rf lib",
     "clean:build": "rm lib/*.test.js && rimraf lib/**/*.test.js",
     "commit": "git-cz",
