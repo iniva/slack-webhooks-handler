@@ -25,9 +25,15 @@ const fakeRepository = {
 };
 
 describe('Github Webhook', () => {
+    it('should throw when not passing headers', () => {
+        expect(() => {
+            const data = github(); // eslint-disable-line no-unused-vars
+        }).toThrow('Event is not present in headers');
+    });
+
     it('should throw when passing invalid headers', () => {
         expect(() => {
-            const data = github({}); // eslint-disable-line no-unused-vars
+            const data = github({'random-header': 'random value'}); // eslint-disable-line no-unused-vars
         }).toThrow('Event is not present in headers');
     });
 
