@@ -4,14 +4,29 @@
   "description": "Manage incoming webhooks to send messages to Slack",
   "author": "Tony Di Benedetto <tonyblast@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iniva/slack-webhooks-handler.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iniva/slack-webhooks-handler/issues"
+  },
+  "keywords": [
+    "slack",
+    "slack-webhook",
+    "github",
+    "github-webhooks",
+    "webhooks"
+  ],
   "scripts": {
     "clean": "rm -rf lib",
     "clean:build": "rm lib/*.test.js && rimraf lib/**/*.test.js",
     "commit": "git-cz",
     "hooks:message": "node hooks/index.js --action=message",
-    "do:build": "yarn clean && babel src --out-dir lib --copy-files --ignore '**/*.test.js' && yarn clean:build && cp package.json ./lib",
+    "do:build": "yarn clean && babel src --out-dir lib --copy-files --ignore '**/*.test.js' && yarn clean:build",
     "do:pack": "cd lib && yarn pack",
-    "do:publish": "cd lib && yarn publish",
+    "do:prepublish": "cp package.json README.md LICENSE ./lib",
+    "do:publish": "yarn do:prepublish && cd lib && yarn publish",
     "lint": "eslint src hooks",
     "test": "NODE_ENV=test jest",
     "test:coverage": "yarn test --coverage",
