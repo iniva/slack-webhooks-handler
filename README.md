@@ -19,7 +19,7 @@ yarn add slack-webhooks-handler
 
 ## Options
 - **url**(*required*): Your Slack custom integration (*Incoming Webhook*) URL
-- **botName**(*optional*): The name of the bot that will appear when sending messages. Do this if you want/need to override the one you set on you custom integration.
+- **botName**(*optional*): The name of the bot that will appear when sending messages. Do this if you want/need to override the one you set on your custom integration.
 
 ```javascript
 // options object
