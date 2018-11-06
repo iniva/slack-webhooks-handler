@@ -1,12 +1,12 @@
 /* global describe it expect */
 
 import * as library from './';
-import Webhook from './webhook';
+import Dispatcher from './dispatcher';
 import factory from './factory';
 
 describe('Slack Webhooks Handler Library', () => {
-    it('should export the Webhook class and the Factory function', () => {
-        expect(library.Webhook).toEqual(Webhook);
+    it('should export the Dispatcher class and the Factory function', () => {
+        expect(library.Dispatcher).toEqual(Dispatcher);
         expect(library.factory).toEqual(factory);
     });
 });

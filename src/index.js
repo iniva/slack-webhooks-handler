@@ -1,7 +1,7 @@
-import Webhook from './webhook';
+import Dispatcher from './dispatcher';
 import factory from './factory';
 
 export {
-    Webhook,
+    Dispatcher,
     factory
 }
