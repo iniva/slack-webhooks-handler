@@ -35,7 +35,7 @@ const name = 'slack-service';
 
 export default {
     name,
-    register: async(server, { mask, ...options }) => {
+    register: async(server, options) => {
         const service = new SlackService(options);
 
         server.decorate('server', 'slackService', service);
