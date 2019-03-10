@@ -4,7 +4,8 @@ module.exports = { // eslint-disable-line import/no-commonjs
     ],
     testPathIgnorePatterns: [
         '/node_modules/',
-        '<rootDir>/src/config/test.js'
+        '<rootDir>/src/config/test.js',
+	'<rootDir>/lib/'
     ],
     testEnvironment: 'node',
     coverageReporters: [
