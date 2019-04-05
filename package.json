@@ -31,7 +31,7 @@
     "test:coveralls": "yarn test --coverage --coverageReporters=text-lcov | coveralls"
   },
   "dependencies": {
-    "@slack/client": "^4.11.0",
+    "@slack/webhook": "^5.0.0",
     "core-js": "2"
   },
   "devDependencies": {
