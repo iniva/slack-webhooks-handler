@@ -1,10 +1,10 @@
 /* global jest describe it expect */
 
-import { IncomingWebhook } from '@slack/client';
+import { IncomingWebhook } from '@slack/webhook';
 
 import Dispatcher from './dispatcher';
 
-jest.mock('@slack/client');
+jest.mock('@slack/webhook');
 
 describe('Slack Dispatcher', () => {
     it('should throw if Slack Webhook URL is not defined', () => {

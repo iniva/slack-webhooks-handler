@@ -1,4 +1,4 @@
-import { IncomingWebhook } from '@slack/client';
+import { IncomingWebhook } from '@slack/webhook';
 
 export default class Dispatcher {
     constructor(options = {}) {
