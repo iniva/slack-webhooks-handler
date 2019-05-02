@@ -6,10 +6,23 @@ export default class Dispatcher {
             throw new Error('Slack Webhook URL is required');
         }
 
+        if (!options.botName) {
+            throw new Error('bot name is required');
+        }
+
         this.webhook = new IncomingWebhook(options.url);
         this.username = options.botName;
         this.text = '';
+        this.channel = '';
         this.attachments = [];
+    }
+
+    setMessage(text = '') {
+        this.text = text;
+    }
+
+    setChannel(channel = '') {
+        this.channel = channel;
     }
 
     hasAttachments() {
@@ -30,6 +43,10 @@ export default class Dispatcher {
             text: this.text,
             attachments: this.attachments
         };
+
+        if(this.channel !== '') {
+            message.channel = this.channel;
+        }
 
         return this.webhook.send(message);
     }
