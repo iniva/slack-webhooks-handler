@@ -112,6 +112,21 @@ describe('Slack Dispatcher', () => {
         expect(dispatcher.attachments).toEqual(expect.arrayContaining(attachments));
     });
 
+    it('should prepare the payload', () => {
+        const dispatcher = new Dispatcher(mockConfig);
+        const message = 'test message';
+        const attachments = [{
+            field: 'value'
+        }];
+
+        dispatcher.setMessage(message);
+        dispatcher.withAttachments(attachments);
+
+        dispatcher.preparePayload();
+
+        expect(dispatcher.payload).not.toEqual(null);
+    });
+
     it('should call the IncomingWebhook send function', () => {
         const dispatcher = new Dispatcher(mockConfig);
 

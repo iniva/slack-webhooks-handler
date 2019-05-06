@@ -14,6 +14,7 @@ export default class Dispatcher {
         this.username = options.botName;
         this.text = '';
         this.channel = '';
+        this.payload = null;
         this.attachments = [];
     }
 
@@ -33,21 +34,27 @@ export default class Dispatcher {
         this.attachments = attachments;
     }
 
-    async send() {
-        if (!this.hasAttachments() && this.text === '') {
-            throw new Error('Cannont send message. Either set a text or attachments.');
-        }
-
-        const message = {
+    preparePayload() {
+        const payload = {
             username: this.username,
             text: this.text,
             attachments: this.attachments
         };
 
         if(this.channel !== '') {
-            message.channel = this.channel;
+            payload.channel = this.channel;
         }
 
-        return this.webhook.send(message);
+        this.payload = payload;
+    }
+
+    async send() {
+        if (!this.hasAttachments() && this.text === '') {
+            throw new Error('Cannont send message. Either set a text or attachments.');
+        }
+
+        this.preparePayload();
+
+        return this.webhook.send(this.payload);
     }
 }
