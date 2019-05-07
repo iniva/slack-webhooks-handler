@@ -7,6 +7,8 @@ Manage incoming webhooks to send messages to Slack
 - [Installation](#installation)
 - [Options](#options)
 - [Usage](#usage)
+  - [Available Dispatcher Methods](#available-dispatcher-methods)
+- [Payload docs](#payload-docs)
 
 ## Installation
 ```
@@ -34,7 +36,7 @@ yarn add slack-webhooks-handler
 
 At the moment you have the main dispatcher (**Dispatcher**) and a **factory** function.
 
-You can use the dispatcher alone to send a simple message (just text) or a custom one following the [attachments structure](https://api.slack.com/docs/message-attachments#attachment_structure), or you can rely on the *factory* function (currently only supports Github's *release* and *issues* events, more on the way...)
+You can rely on the *factory* function (currently only supports Github's *release* and *issues* events, more on the way...), or you can use the dispatcher alone to send a simple message (just text) or a custom one following the [attachments structure](https://api.slack.com/docs/message-attachments#attachment_structure)
 ```javascript
 const { Dispatcher, factory } = require('slack-webhooks-handler')
 
@@ -54,6 +56,13 @@ dispatcher.withAttachments(attachments);
 })();
 ```
 
+### Available Dispatcher Methods
+* **setMessage**: Use it when you intend to send a simple message.
+* **setChannel**: Even if you set your Slack Webhook to a specific channel, you can use this method to change the target channel for specific messages.
+* **withAttachments**: Use it to set [attachments](https://api.slack.com/docs/message-attachments#attachment_structure) for messages.
+* **preparePayload**: Use it to preview the payload you will send to Slack.
+
+## Payload docs
 For more info about event payloads take a look at:
 - **Github**: [Event Types & Payloads](https://developer.github.com/v3/activity/events/types)
 - **Bitbucket**: [Event payload](https://confluence.atlassian.com/bitbucketserver/event-payload-938025882.html)
