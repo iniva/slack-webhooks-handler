@@ -1,6 +1,6 @@
 {
   "name": "slack-webhooks-handler",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Manage incoming webhooks to send messages to Slack",
   "author": "Tony Di Benedetto <tonyblast@gmail.com>",
   "license": "MIT",
